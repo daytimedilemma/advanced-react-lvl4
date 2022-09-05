@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react"
 
 
 export default function App() {
-    const [currentColor, setCurrentColor] = useState("643a3a")
+    // const [currentColor, setCurrentColor] = useState("643a3a")
     const [colorPicker, setColorPicker] = useState(
         {
             colorOne: "#ffffff",
             colorTwo: "#ffffff"
         }
     )
-    useEffect(() => {
-        setCurrentColor(colorPicker.colorOne)
-    }, [colorPicker])
+    // useEffect(() => {
+    //     setCurrentColor(colorPicker.colorOne)
+    // }, [colorPicker])
     function handleChange(e) {
         const { name, value } = e.target
         setColorPicker(prevColorPicker => {

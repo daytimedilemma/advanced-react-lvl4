@@ -1,0 +1,24 @@
+div > form {
+   display: flex;
+    background-color: cornflowerblue;
+    width: auto;
+    height: 200px;
+    padding: 20px;
+    justify-content: space-between;
+   
+}
+
+form > input {
+    align-items: center;
+    height: 20px;
+    display: inline;
+}
+
+div > form > button {
+    display: block;
+    height: 20px;
+    border-radius: 10px;
+    background-color:aquamarine;
+    color: grey;
+}
+
