@@ -1,74 +1,68 @@
-import React, { useState } from "react"
-import UglyList from "./UglyList"
+import React, { useState, useEffect, useContext } from "react"
+import axios from "axios"
+import {UseContext} from "./UseContext"
+import DeleteButton from "./DeleteButton"
+import EditButton from "./EditButton"
+
+
 export default function UglyThingsInput() {
+
+   const {addToList} = useContext(UseContext)
+
     const [uglyThing, setUglyThing] = useState({
-        id: 0,
         imgUrl: "",
         title: "",
         description: ""
     })
 
-    const [uglyThingList, setUglyThingList] = useState([])
-    const list = uglyThingList.map((name, index) => {
-        return (
-            <li id={index}>
-                <img src={`${name.imgUrl}`} alt="user ImgUrl"/>
-                <h3>{name.title}</h3>
-                <p>{name.description}</p>
-            </li>
-        )
-    })
-
-    function handleChange(event){
-        const {name, value} = event.target
+    function handleChange(event) {
+        const { name, value } = event.target
         setUglyThing(prevUglyThing => {
             return {
                 ...prevUglyThing,
-                [name]:  value
+                [name]: value
             }
         })
     }
 
-    function addToList(e){
-        e.preventDefualt()
-        setUglyThingList(prevUglyThingList => {
-            return [
-                ...prevUglyThingList,
-                uglyThing
-            ]
-        })
-    }
 
- 
+    function handleSubmit(e) {
+        e.preventDefault()
+        addToList(uglyThing)
+    }  
+
     return (
         <>
-            <form>
-                <input 
-                type="text" 
-                name="imgUrl" 
-                placeholder="Your Image Url"
-                value={uglyThing.imgUrl}
-                onChange={handleChange}
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="imgUrl"
+                    placeholder="Your Image Url"
+                    value={uglyThing.imgUrl}
+                    onChange={handleChange}
                 />
-                <input 
-                type="text" 
-                name="title" 
-                placeholder="Your Title"
-                value={uglyThing.title}
-                onChange={handleChange}
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Your Title"
+                    value={uglyThing.title}
+                    onChange={handleChange}
                 />
-                <input 
-                type="text" 
-                name="description" 
-                placeholder="Your Description"
-                value={uglyThing.description}
-                onChange={handleChange}
+                <input
+                    type="text"
+                    name="description"
+                    placeholder="Your Description"
+                    value={uglyThing.description}
+                    onChange={handleChange}
                 />
-                <button onClick={addToList}>Submit</button>
+                <button>Submit</button>
             </form>
+
             <ul>
-                {list}
+                {/* {list} */}
             </ul>
+
+
         </>
     )
 }

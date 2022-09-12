@@ -1,13 +1,9 @@
-import React, { Component } from "react"
+import React, { useContext, useState } from "react"
+import { UseContext } from "./UseContext"
 
-class TodoForm extends Component {
-    state = {
-        title: "",
-        description: "",
-        imgUrl: ""
-    }
+export default function TodoForm(){
+    const {uglyThingList, setUglyThingList } = useContext(UseContext)
 
-    render() {
-
-    }
+    
+    
 }

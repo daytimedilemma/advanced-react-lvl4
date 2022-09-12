@@ -22,3 +22,15 @@ div > form > button {
     color: grey;
 }
 
+.listPhoto {
+    height: 200px;
+    width: 200px;
+}
+
+.blue {
+    color: blue;
+}
+
+.black {
+    color: black;
+}
